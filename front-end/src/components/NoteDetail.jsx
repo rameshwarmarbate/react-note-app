@@ -27,6 +27,10 @@ const NoteDetail = () => {
   }, [data]);
 
   useEffect(() => {
+    ref.current.style.height = ref.current.scrollHeight + "px";
+  }, [title]);
+
+  useEffect(() => {
     forEach(contents, (note, index) => {
       if (note.type === "text") {
         const textarea = document.getElementById("note " + index);
@@ -114,10 +118,7 @@ const NoteDetail = () => {
   };
   return (
     <>
-      <div
-        className="container min-vh-100 min-vw-100"
-        style={{ padding: "2rem" }}
-      >
+      <div className="container min-vw-100" style={{ padding: "2rem" }}>
         <div className="row">
           <div className="col col-md-1" />
           <div className="col-md-10 d-flex justify-content-between">

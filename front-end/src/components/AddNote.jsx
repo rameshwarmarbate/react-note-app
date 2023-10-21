@@ -69,7 +69,7 @@ const AddNote = () => {
   const onSave = () => {
     const params = {
       title,
-      contents,
+      contents: filter(contents, ({ value }) => !!value),
     };
     if (title?.trim()) {
       post("", params).then(
@@ -96,10 +96,7 @@ const AddNote = () => {
   };
   return (
     <>
-      <div
-        className="container min-vh-100 min-vw-100"
-        style={{ padding: "2rem" }}
-      >
+      <div className="container min-vw-100" style={{ padding: "2rem" }}>
         <div className="row">
           <div className="col col-md-1" />
           <div className="col-md-10 d-flex justify-content-between">
