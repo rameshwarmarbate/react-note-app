@@ -1,0 +1,164 @@
+body {
+  overflow-x: hidden;
+}
+
+.main-container {
+  background-color: #f2f4f7;
+  min-height: 100vh;
+  /* min-width: 100vw; */
+}
+
+.heading {
+  font-family: Roboto;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: 0.015em;
+  text-align: left;
+  color: #272728;
+}
+
+.new-button {
+  border: none;
+  width: 93px;
+  height: 38px;
+  top: 54px;
+  left: 1127px;
+  border-radius: 12px;
+  background: #579bc3;
+  box-shadow: 0px 0px 12px 0px #00000040;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 2px;
+  text-align: justified;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px !important;
+}
+
+li {
+  height: Hug (98px);
+  top: 135px;
+  left: 200px;
+  padding: 16px;
+  border-radius: 13px;
+  gap: 10px;
+  background: #ffffff;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
+}
+
+.title {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.23999999463558197px;
+  text-align: left;
+  color: #272728;
+}
+.desc {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.07800000160932541px;
+  text-align: left;
+}
+.date {
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.07800000160932541px;
+  text-align: left;
+}
+
+.save-button {
+  width: 93px;
+  height: 38px;
+  top: 46px;
+  left: 1188px;
+  border: none;
+  border-radius: 8px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: justified;
+  color: #579bc3;
+  background: #d3e2ed;
+}
+.back-button {
+  color: #000000;
+}
+
+textarea {
+  border: none;
+  resize: none !important;
+  background: #ffffff;
+  width: 100%;
+  height: auto;
+}
+textarea:focus {
+  outline: none;
+}
+
+.input-title {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: justified;
+  color: #272728;
+}
+
+.input-note {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: justified;
+}
+
+.input-button {
+  width: 65px;
+  height: 38px;
+  top: 754.76px;
+  left: 574px;
+  border-radius: 8px;
+  background: #d3e2ed;
+  border: none;
+}
+
+.align-right {
+  text-align: end;
+}
+
+.delete-button {
+  color: #579bc3;
+  background: #d3e2ed;
+  width: 40px;
+  top: 24px;
+  left: 552px;
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+  gap: 10px;
+}
+
+.fixed-element {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+}
