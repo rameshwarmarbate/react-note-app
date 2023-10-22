@@ -7,7 +7,9 @@ const addNote = async (req, res, next) => {
 
   const restructureContents = map(contents, ({ type, value }) => {
     return {
-      data: value.preview ? Buffer.from(value.preview, "base64") : null,
+      data: value.preview
+        ? new Buffer(value.preview.split(",")[1], "base64")
+        : null,
       contentType: value.contentType,
       type,
       value: type === "text" ? value : null,
@@ -32,7 +34,9 @@ const updateNote = async (req, res, next) => {
   const { id } = req.params;
   const restructureContents = map(contents, ({ type, value }) => {
     return {
-      data: value.preview ? Buffer.from(value.preview, "base64") : null,
+      data: value.preview
+        ? new Buffer(value.preview.split(",")[1], "base64")
+        : null,
       contentType: value.contentType,
       type,
       value: type === "text" ? value : null,
