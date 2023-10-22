@@ -16,26 +16,34 @@ const AddNote = () => {
   const fileRef = useRef(null);
   const navigate = useNavigate();
 
+  // Function to store a note title
   const handleTitle = (e) => {
     const { value } = e.target;
     e.preventDefault();
     ref.current.style.height = ref.current.scrollHeight + "px";
     setTitle(value);
   };
+
+  // Function to store a note texts
   const handleNote = (e, index) => {
     const { value, name } = e.target;
     const textarea = document.getElementById(name);
     e.preventDefault();
     textarea.style.height = textarea.scrollHeight + "px";
-    contents[index] = { ...contents[index], value };
-    setContents([...contents]);
+    setContents((prevContents) => {
+      const updatedContents = [...prevContents];
+      updatedContents[index] = { ...updatedContents[index], value };
+      return updatedContents;
+    });
   };
 
+  // Function to store a note files like image audio and video
   const onFileSelect = (e) => {
     const { files, name } = e.target;
     e.preventDefault();
     const file = files[0];
     if (file.type?.startsWith?.(`${name}/`)) {
+      // check if selected file type is valid or note
       const reader = new FileReader();
       reader.onload = ({ target }) => {
         contents.push({
@@ -53,19 +61,26 @@ const AddNote = () => {
       alert(`Please select a valid ${name} file.`);
     }
   };
+
+  // Function to delete a note image
   const deleteContent = (e, index) => {
     e.preventDefault();
-    contents.splice(index, 1);
-    setContents([...contents]);
+    setContents((prevContents) => {
+      const updatedContents = [...prevContents];
+      updatedContents.splice(index, 1);
+      return updatedContents;
+    });
   };
 
-  const onAttachMentClick = (e, name) => {
+  // Function to handle a file content
+  const onAttachmentClick = (e, name) => {
     e.preventDefault();
     fileRef.current.accept = fileTypes[name];
     fileRef.current.name = name;
     fileRef.current.click();
   };
 
+  // Function to save data at backend
   const onSave = () => {
     const params = {
       title,
@@ -210,7 +225,7 @@ const AddNote = () => {
             <div className="col-3 p-4">
               <button
                 className="input-button"
-                onClick={(e) => onAttachMentClick(e, "image")}
+                onClick={(e) => onAttachmentClick(e, "image")}
               >
                 <img src={image} alt="Image" />
               </button>
@@ -218,7 +233,7 @@ const AddNote = () => {
             <div className="col-3 p-4">
               <button
                 className="input-button"
-                onClick={(e) => onAttachMentClick(e, "video")}
+                onClick={(e) => onAttachmentClick(e, "video")}
               >
                 <img src={camera} alt="Camera" />
               </button>
@@ -226,7 +241,7 @@ const AddNote = () => {
             <div className="col-3 p-4">
               <button
                 className="input-button"
-                onClick={(e) => onAttachMentClick(e, "audio")}
+                onClick={(e) => onAttachmentClick(e, "audio")}
               >
                 <img src={mic} alt="Microphone" />
               </button>
