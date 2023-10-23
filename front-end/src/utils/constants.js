@@ -1,3 +1,3 @@
-const API_URL = "http://localhost:8080/api/";
+const API_URL = "https://react-notes-app-api.vercel.app/";
 
 export { API_URL };

@@ -12,12 +12,12 @@
 
 3. Create .env with following content
 
-````
+```
 DB_URL=
 
-PORT=3000
+PORT=8080
 SECRET=AAA
-````
+```
 
 ## Run
 
