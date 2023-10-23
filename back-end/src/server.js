@@ -32,6 +32,10 @@ app.use("*", (req, res, next) => {
 // Assign Routes
 app.use("/api/", require("./routes/note.route"));
 
+app.get("/", (req, res, next) => {
+  res.render("Hi from apis!");
+});
+
 // Handle not valid route
 app.use("*", (req, res) => {
   res.status(404).json({ status: false, message: "Endpoint Not Found" });
