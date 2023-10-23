@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
 app.use(cors());
 app.use(helmet());
+app.use("*", cors());
 
 // This middleware adds the json header to every response
 app.use("*", (req, res, next) => {

@@ -7,6 +7,7 @@ const instance = axios.create({
   headers: {
     Authorization: "Bearer ",
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
   },
 });
 
