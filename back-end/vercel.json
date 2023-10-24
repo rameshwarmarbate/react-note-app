@@ -7,5 +7,16 @@
     }
   ],
   "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/" }],
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
 }
