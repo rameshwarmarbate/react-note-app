@@ -10,7 +10,7 @@ const useApi = (url) => {
     const fetchData = async () => {
       try {
         const response = await get(url);
-        if (!response.statusText) {
+        if (response.status !== 200) {
           throw new Error("Network response was not ok");
         }
         const result = await response.data;
