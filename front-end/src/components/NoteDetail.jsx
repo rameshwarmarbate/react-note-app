@@ -4,6 +4,7 @@ import { filter, forEach, map } from "lodash";
 import { useNavigate, useParams } from "react-router-dom";
 import { patch } from "../services/api";
 import useApi from "../hooks/useApi";
+import Loader from "./Loader";
 
 const fileTypes = {
   video: "video/*",
@@ -12,12 +13,13 @@ const fileTypes = {
 };
 const NoteDetail = () => {
   const [title, setTitle] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const [contents, setContents] = useState([{ type: "text", value: "" }]);
   const ref = useRef(null);
   const fileRef = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data } = useApi(id);
+  const { data, loading } = useApi(id);
 
   useEffect(() => {
     if (data) {
@@ -110,14 +112,17 @@ const NoteDetail = () => {
       contents: filter(contents, ({ value }) => !!value),
     };
     if (title?.trim()) {
+      setLoading(true);
       patch(`/${id}`, params).then(
         ({ status }) => {
           if (status === 200) {
+            setLoading(false);
             navigateToBack();
           }
         },
         (err) => {
           console.log(err.message);
+          setLoading(false);
         }
       );
     } else {
@@ -134,6 +139,7 @@ const NoteDetail = () => {
   };
   return (
     <>
+      {loading || isLoading ? <Loader /> : null}
       <div className="container min-vw-100" style={{ padding: "2rem" }}>
         <div className="row">
           <div className="col col-md-1" />
@@ -241,7 +247,6 @@ const NoteDetail = () => {
           onChange={onFileSelect}
         />
       </div>
-
       <div className="d-flex justify-content-center ">
         <div className="CONTAINER-BOX position-absolute bottom-0 text-center">
           <div className="d-flex justify-content-center row">

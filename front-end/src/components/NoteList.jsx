@@ -2,10 +2,11 @@ import { map } from "lodash";
 import { useNavigate } from "react-router-dom";
 import useApi from "../hooks/useApi";
 import { formatDate } from "../utils/helper";
+import Loader from "./Loader";
 
 const NoteList = () => {
   const navigate = useNavigate();
-  const { loading, data, error } = useApi("");
+  const { loading, data } = useApi("");
 
   const onNewClick = () => {
     navigate("/add-note");
@@ -13,11 +14,13 @@ const NoteList = () => {
   const onDetailClick = (_id) => {
     navigate(`/note-detail/${_id}`);
   };
+
   return (
     <div
       className="container main-container min-vh-100 min-vw-100"
       style={{ padding: "2rem" }}
     >
+      {loading ? <Loader /> : null}
       <div className="row">
         <div className="col-md-1" />
         <div className="col-md-10 d-flex justify-content-between">

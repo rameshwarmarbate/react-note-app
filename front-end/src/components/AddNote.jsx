@@ -3,6 +3,7 @@ import { backArrow, camera, image, mic, deleteIcon } from "../assets";
 import { filter, map } from "lodash";
 import { useNavigate } from "react-router-dom";
 import { post } from "../services/api";
+import Loader from "./Loader";
 
 const fileTypes = {
   video: "video/*",
@@ -11,6 +12,7 @@ const fileTypes = {
 };
 const AddNote = () => {
   const [title, setTitle] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const [contents, setContents] = useState([{ type: "text", value: "" }]);
   const ref = useRef(null);
   const fileRef = useRef(null);
@@ -87,14 +89,17 @@ const AddNote = () => {
       contents: filter(contents, ({ value }) => !!value),
     };
     if (title?.trim()) {
+      setLoading(true);
       post("", params).then(
         ({ status }) => {
           if (status === 200) {
             navigateToBack();
+            setLoading(false);
           }
         },
         (err) => {
           console.log(err.message);
+          setLoading(false);
         }
       );
     } else {
@@ -111,6 +116,7 @@ const AddNote = () => {
   };
   return (
     <>
+      {isLoading ? <Loader /> : null}
       <div className="container min-vw-100" style={{ padding: "2rem" }}>
         <div className="row">
           <div className="col col-md-1" />
