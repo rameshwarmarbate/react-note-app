@@ -6,8 +6,16 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/" }],
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/server.js"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
