@@ -49,6 +49,7 @@ const NoteList = () => {
               );
             })}
           </ul>
+          {data && !data.length ? <p>No data found!</p> : null}
         </div>
         <div className="col-md-1" />
       </div>
