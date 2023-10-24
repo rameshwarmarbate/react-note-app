@@ -33,7 +33,7 @@ app.use("*", (req, res, next) => {
 app.use("/api/", require("./routes/note.route"));
 
 app.get("/", (req, res, next) => {
-  res.render("Hi from apis!");
+  res.status(200).json({ message: "Hi from apis!" });
 });
 
 // Handle not valid route
