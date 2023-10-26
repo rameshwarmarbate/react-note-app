@@ -119,8 +119,8 @@ const AddNote = () => {
       {isLoading ? <Loader /> : null}
       <div className="container min-vw-100" style={{ padding: "2rem" }}>
         <div className="row">
-          <div className="col col-md-1" />
-          <div className="col-md-10 d-flex justify-content-between">
+          <div className="col col-1" />
+          <div className="col-10 d-flex justify-content-between">
             <div className="back-button" onClick={onGoBack}>
               <img src={backArrow} />
             </div>
@@ -130,11 +130,11 @@ const AddNote = () => {
               </button>
             </div>
           </div>
-          <div className="col col-md-1" />
+          <div className="col col-1" />
         </div>
         <div className="row">
-          <div className="col col-md-2" />
-          <div className="col col-md-8">
+          <div className="col col-2" />
+          <div className="col col-8">
             <textarea
               ref={ref}
               className="input-title"
@@ -143,15 +143,15 @@ const AddNote = () => {
               value={title}
             />
           </div>
-          <div className="col col-md-2" />
+          <div className="col col-2" />
         </div>
         {map(contents, ({ type, value }, index) => {
           return (
             <Fragment key={index}>
               {type === "text" ? (
                 <div className="row pb-4">
-                  <div className="col col-md-2" />
-                  <div className="col col-md-8">
+                  <div className="col col-2" />
+                  <div className="col col-8">
                     <textarea
                       id={"note " + index}
                       name={"note " + index}
@@ -161,7 +161,7 @@ const AddNote = () => {
                       onChange={(e) => handleNote(e, index)}
                     />
                   </div>
-                  <div className="col col-md-2" />
+                  <div className="col col-2" />
                 </div>
               ) : type === "image" ? (
                 <div className="row pb-4">
