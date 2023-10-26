@@ -165,8 +165,8 @@ const AddNote = () => {
                 </div>
               ) : type === "image" ? (
                 <div className="row pb-4">
-                  <div className="col col-4" />
-                  <div className="col col-4">
+                  <div className="col col-md-4" />
+                  <div className="col col-md-4">
                     <div className="position-relative">
                       <img
                         style={{
@@ -186,20 +186,20 @@ const AddNote = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col col-4"></div>
+                  <div className="col col-md-4"></div>
                 </div>
               ) : type === "audio" ? (
                 <div className="row pb-4">
-                  <div className="col col-4"> </div>
-                  <div className="col col-4">
+                  <div className="col col-md-4"> </div>
+                  <div className="col col-md-4">
                     <audio controls src={value.preview} />
                   </div>
-                  <div className="col col-4"></div>
+                  <div className="col col-md-4"></div>
                 </div>
               ) : (
                 <div className="row pb-4">
-                  <div className="col col-4"></div>
-                  <div className="col col-4">
+                  <div className="col col-md-4"></div>
+                  <div className="col col-md-4">
                     <video
                       controls
                       src={value.preview}
@@ -209,7 +209,7 @@ const AddNote = () => {
                       }}
                     />
                   </div>
-                  <div className="col col-4"> </div>
+                  <div className="col col-md-4"> </div>
                 </div>
               )}
             </Fragment>

@@ -22,8 +22,8 @@ const NoteList = () => {
     >
       {loading ? <Loader /> : null}
       <div className="row">
-        <div className="col-1" />
-        <div className="col-10 d-flex justify-content-between">
+        <div className="col-md-1" />
+        <div className="col-md-10 d-flex justify-content-between">
           <div>
             <label className="heading">Notes</label>
           </div>
@@ -33,11 +33,11 @@ const NoteList = () => {
             </button>
           </div>
         </div>
-        <div className="col-1" />
+        <div className="col-md-1" />
       </div>
       <div className="row">
-        <div className="col-1" />
-        <div className="col-10">
+        <div className="col-md-1" />
+        <div className="col-md-10">
           <ul>
             {map(data, ({ title, desc, createdAt, _id }) => {
               return (
@@ -51,7 +51,7 @@ const NoteList = () => {
           </ul>
           {data && !data.length ? <p>No data found!</p> : null}
         </div>
-        <div className="col-1" />
+        <div className="col-md-1" />
       </div>
     </div>
   );
